@@ -1,6 +1,6 @@
-from calculadora_interface_grafica import Calculadora_Interface_Grafica
-from calculadorafatorial import fazer_janela, fazer_display, fazer_label,fazer_buttons
-from calculadoratratamento import calcular
+from GUI import Calculadora_Interface_Grafica
+from fatorial import fazer_janela, fazer_display, fazer_label,fazer_buttons
+from tratamento import calcular
 
 def main():
     janela = fazer_janela()
@@ -9,8 +9,8 @@ def main():
     label = fazer_label(janela, row=0, column=0, columnspan=5, sticky='news')
     buttons = fazer_buttons(janela, starting_row=2)
 
-    calculatora_interface_grafica = Calculadora_Interface_Grafica(janela, label, display, buttons, calcular)
-    calculatora_interface_grafica.start_interface_grafica()
+    GUI = Calculadora_Interface_Grafica(janela, label, display, buttons, calcular)
+    GUI.start_interface_grafica()
 
 if __name__ == '__main__':
     main()
