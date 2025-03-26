@@ -19,10 +19,9 @@ def fazer_display(janela, **grid_options) -> tk.Entry:
     display = tk.Entry(janela)
     display.grid(**grid_options)
     display.config(
-        font=('Arial', 40, 'bold'),
+        font=('Courier', 40, 'bold'),
         justify='right', bd=1, relief='flat',
-        highlightthickness=1, highlightcolor='#ccc'
-    )
+        highlightthickness=1, highlightcolor='#ccc', bg="#bedbd0")
     display.bind('<Control-a>', _display_control_a)
     return display
 
@@ -51,7 +50,6 @@ def fazer_buttons(janela, starting_row) -> List[List[tk.Button]]:
         ['^', '0', '.', '='],
         
     ]
-
     buttons: List[List[tk.Button]] = []
 
     for row, row_value in enumerate(button_texts, start=starting_row):
