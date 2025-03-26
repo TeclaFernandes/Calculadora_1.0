@@ -1,15 +1,13 @@
 import tkinter as tk
 from typing import List
 
-#graficos da janela
 def fazer_janela() -> tk.Tk:
     janela = tk.Tk()
     janela.title('Calculadora')
-    janela.config(padx=10, pady=10, background='#000000')#cor fundo calculadora envolta dos botoes e tela
+    janela.config(padx=10, pady=10, background='#000000')
     janela.resizable(False, False)
     return janela
 
-#editar depois 
 def fazer_label(janela, **grid_options) -> tk.Label:
     label = tk.Label(
         janela, text='Bem-vindo',
@@ -17,7 +15,6 @@ def fazer_label(janela, **grid_options) -> tk.Label:
     )
     label.grid(**grid_options)
     return label
-
 
 def fazer_display(janela, **grid_options) -> tk.Entry:
     display = tk.Entry(janela)
@@ -30,27 +27,21 @@ def fazer_display(janela, **grid_options) -> tk.Entry:
     display.bind('<Control-a>', _display_control_a)
     return display
 
-
 def _display_control_a(event):
     event.widget.select_range(0, 'end')
     event.widget.icursor('end')
     return 'break'
 
-
-#botoes cores tamanho e etc
 def fazer_button(janela, text, **grid_options) -> tk.Button:
     btn = tk.Button(janela, text=text)
     btn.grid(**grid_options)
     btn.config(
         font=('Helvetica', 15, 'normal'),
-        pady=25, width=12,height=1, background='#808080', bd=0, #cor  botoes 9 8 7 6 5 4 3 2 1 0 + - * . ^ / (  )  
+        pady=25, width=12,height=1, background='#808080', bd=0, 
         cursor='hand2', highlightthickness=0,
         highlightcolor='#ccc', activebackground='#ccc',
-        highlightbackground='#ccc'
-
-    )
+        highlightbackground='#ccc')
     return btn
-
 
 def fazer_buttons(janela, starting_row) -> List[List[tk.Button]]:
     button_texts: List[List[str]] = [

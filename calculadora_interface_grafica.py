@@ -1,7 +1,6 @@
 import tkinter as tk
 from typing import List, Callable
 
-
 class Calculadora_Interface_Grafica:
 
     def __init__(
@@ -19,25 +18,22 @@ class Calculadora_Interface_Grafica:
         self.do_calcular = do_calcular
 
     def start_interface_grafica(self) -> None:
-        #start_Interface_grafica#
         self._config_display()
         self._config_buttons()
         self.janela.mainloop()
 
     def _config_display(self) -> None:
-        #Display configuracoes
         display = self.display
         display.bind('<Return>', self.do_calcular)
         display.bind('<KP_Enter>', self.do_calcular)
 
     def _config_buttons(self) -> None:
-         #Todas as configurações de botão
         buttons_list = self.button_list
         for row in buttons_list:
             for button in row:
                 button_text = button['text']
 
-                if button_text == 'C':  #cor botao C
+                if button_text == 'C':
                     button.bind('<Button-1>', self.clear_display)
                     button.config(bg='#FF4500', fg='#fff')
 
@@ -46,16 +42,9 @@ class Calculadora_Interface_Grafica:
 
                 if button_text == '=':
                     button.bind('<Button-1>', self.calcular)
-                    button.config(bg='#4785F4', fg='#fff')#COR BOTAO DE =
-
-                
-
-
-    
-                
+                    button.config(bg='#4785F4', fg='#fff')
 
     def calcular(self, event=None) -> None:
-        #Resolver equações
         equacao = self.display.get()
 
         try:
@@ -70,10 +59,8 @@ class Calculadora_Interface_Grafica:
             self.label.config(text='Conta inválida')
 
     def add_text_to_display(self, event=None) -> None:
-         #Adicionar texto a ser exibido na tela
         self.display.insert('end', event.widget['text'])
         self.display.focus()
 
     def clear_display(self, event=None) -> None:
-        #Limpar exibição
         self.display.delete(0, 'end')
