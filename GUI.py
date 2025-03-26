@@ -35,14 +35,14 @@ class Calculadora_Interface_Grafica:
 
                 if button_text == 'C':
                     button.bind('<Button-1>', self.clear_display)
-                    button.config(bg='#FF4500', fg='#fff')
+                    button.config(bg='#5ccda7', fg='#000')
 
                 if button_text in '0123456789.+-/*()^':
                     button.bind('<Button-1>', self.add_text_to_display)
 
                 if button_text == '=':
                     button.bind('<Button-1>', self.calcular)
-                    button.config(bg='#4785F4', fg='#fff')
+                    button.config(bg='#009d71', fg='#000')
 
     def calcular(self, event=None) -> None:
         equacao = self.display.get()

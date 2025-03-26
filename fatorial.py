@@ -4,15 +4,14 @@ from typing import List
 def fazer_janela() -> tk.Tk:
     janela = tk.Tk()
     janela.title('Calculadora')
-    janela.config(padx=10, pady=10, background='#000000')
+    janela.config(padx=10, pady=10, background='#002817')
     janela.resizable(False, False)
     return janela
 
 def fazer_label(janela, **grid_options) -> tk.Label:
     label = tk.Label(
         janela, text='Bem-vindo',
-        anchor='e', justify='right', background='#708090'
-    )
+        anchor='e', justify='right', background='#026842', font=("Courier", 10, "italic"))
     label.grid(**grid_options)
     return label
 
@@ -36,8 +35,8 @@ def fazer_button(janela, text, **grid_options) -> tk.Button:
     btn = tk.Button(janela, text=text)
     btn.grid(**grid_options)
     btn.config(
-        font=('Helvetica', 15, 'normal'),
-        pady=25, width=12,height=1, background='#808080', bd=0, 
+        font=('courier', 15, 'normal'),
+        pady=25, width=12,height=1, background='#026842', bd=0, 
         cursor='hand2', highlightthickness=0,
         highlightcolor='#ccc', activebackground='#ccc',
         highlightbackground='#ccc')
